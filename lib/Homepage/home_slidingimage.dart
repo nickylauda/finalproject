@@ -8,6 +8,7 @@ class AutoSlidingImages extends StatefulWidget {
   const AutoSlidingImages({super.key});
 
   @override
+  // ignore: library_private_types_in_public_api
   _AutoSlidingImagesState createState() => _AutoSlidingImagesState();
 }
 
@@ -130,14 +131,14 @@ class ImageCard extends StatelessWidget {
             child: Image.asset(
               imageUrl,
               height: 170,
-              width: 330,
+              width: 340,
               fit: BoxFit.cover,
             ),
           ),
         ),
         Container(
           height: 40,
-          width: 330,
+          width: 340,
           decoration: const BoxDecoration(
             color: Colors.black,
             borderRadius: BorderRadius.only(

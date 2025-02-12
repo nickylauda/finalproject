@@ -10,7 +10,7 @@ class WelcomeScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.pink.shade50, // Light pink background
       body: FadeInDown(
-        duration: Duration(milliseconds: 2000),
+        duration: const Duration(milliseconds: 2000),
         child: Stack(
           children: [
             // Background Image

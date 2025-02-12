@@ -12,18 +12,18 @@ class AllCategoriesPage extends StatelessWidget {
     {"name": "Books & More", "icon": Icons.menu_book},
   ];
 
-   AllCategoriesPage({super.key});
+  AllCategoriesPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.blue,
-        title: const Text("All Categories", style: TextStyle(color: Colors.white)),
+        title:
+            const Text("All Categories", style: TextStyle(color: Colors.white)),
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Colors.white),
-          onPressed: () => Navigator.pop(context),
-        ),
+            icon: const Icon(Icons.arrow_back, color: Colors.white),
+            onPressed: () {}),
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -39,7 +39,8 @@ class AllCategoriesPage extends StatelessWidget {
             final category = categories[index];
             return Card(
               elevation: 3,
-              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12)),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -47,7 +48,8 @@ class AllCategoriesPage extends StatelessWidget {
                   const SizedBox(height: 10),
                   Text(category["name"],
                       textAlign: TextAlign.center,
-                      style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+                      style: const TextStyle(
+                          fontSize: 16, fontWeight: FontWeight.bold)),
                 ],
               ),
             );
