@@ -38,8 +38,29 @@ class _LoginScreenState extends State<LoginScreen> {
                       textAlign: TextAlign.center,
                     ),
                     const SizedBox(height: 40),
+                    // TextFormField(
+                    //   controller: emailController,
+                    //   decoration: InputDecoration(
+                    //     prefixIcon: const Icon(Icons.person),
+                    //     hintText: 'Username or Email',
+                    //     border: OutlineInputBorder(
+                    //       borderRadius: BorderRadius.circular(10),
+                    //     ),
+                    //   ),
+                    //   validator: (value) {
+                    //     if (value == null || value.isEmpty) {
+                    //       return 'Please enter your email';
+                    //     } else if (!RegExp(
+                    //             r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$')
+                    //         .hasMatch(value)) {
+                    //       return 'Please enter a valid email';
+                    //     }
+                    //     return null;
+                    //   },
+                    // ),
                     TextFormField(
                       controller: emailController,
+                      keyboardType: TextInputType.emailAddress,
                       decoration: InputDecoration(
                         prefixIcon: const Icon(Icons.person),
                         hintText: 'Username or Email',
@@ -64,6 +85,18 @@ class _LoginScreenState extends State<LoginScreen> {
                       obscureText: !_isPasswordVisible,
                       decoration: InputDecoration(
                         prefixIcon: const Icon(Icons.lock),
+                        // suffixIcon: IconButton(
+                        //   icon: Icon(
+                        //     _isPasswordVisible
+                        //         ? Icons.visibility
+                        //         : Icons.visibility_off,
+                        //   ),
+                        //   onPressed: () {
+                        //     setState(() {
+                        //       _isPasswordVisible = !_isPasswordVisible;
+                        //     });
+                        //   },
+                        // ),
                         suffixIcon: IconButton(
                           icon: Icon(
                             _isPasswordVisible
@@ -75,6 +108,9 @@ class _LoginScreenState extends State<LoginScreen> {
                               _isPasswordVisible = !_isPasswordVisible;
                             });
                           },
+                          tooltip: _isPasswordVisible
+                              ? 'Hide Password'
+                              : 'Show Password',
                         ),
                         hintText: 'Password',
                         border: OutlineInputBorder(
@@ -109,6 +145,40 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                     ),
                     const SizedBox(height: 20),
+                    // ElevatedButton(
+                    //   style: ElevatedButton.styleFrom(
+                    //     backgroundColor: Colors.blue[700],
+                    //     padding: const EdgeInsets.symmetric(vertical: 16),
+                    //     shape: RoundedRectangleBorder(
+                    //       borderRadius: BorderRadius.circular(10),
+                    //     ),
+                    //   ),
+                    //   onPressed: () {
+                    //     if (_formKey.currentState!.validate()) {
+                    //       Navigator.push(
+                    //         context,
+                    //         MaterialPageRoute(
+                    //           builder: (context) => const WelcomeScreen(),
+                    //         ),
+                    //       );
+                    //     }
+                    //   },
+                    //   child: const Text(
+                    //     'Login',
+                    //     style: TextStyle(fontSize: 16, color: Colors.white),
+                    //   ),
+                    // ),
+                    // const SizedBox(height: 20),
+                    // const Row(
+                    //   children: [
+                    //     Expanded(child: Divider(thickness: 1)),
+                    //     Padding(
+                    //       padding: EdgeInsets.symmetric(horizontal: 10),
+                    //       child: Text('- OR Continue with -'),
+                    //     ),
+                    //     Expanded(child: Divider(thickness: 1)),
+                    //   ],
+                    // ),
                     ElevatedButton(
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.blue[700],
@@ -119,12 +189,29 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                       onPressed: () {
                         if (_formKey.currentState!.validate()) {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const WelcomeScreen(),
-                            ),
-                          );
+                          // Simulate a login process (replace with your actual logic)
+                          final email = emailController.text;
+                          final password = passwordController.text;
+
+                          // Example: Check if email and password are valid
+                          if (email == "Hari@gmail.com" &&
+                              password == "123456") {
+                            // Navigate to the WelcomeScreen if login is successful
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const WelcomeScreen(),
+                              ),
+                            );
+                          } else {
+                            // Show SnackBar if login fails
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(
+                                content: Text('Invalid email or password'),
+                                backgroundColor: Colors.red,
+                              ),
+                            );
+                          }
                         }
                       },
                       child: const Text(
@@ -133,25 +220,14 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                     ),
                     const SizedBox(height: 20),
-                    const Row(
-                      children: [
-                        Expanded(child: Divider(thickness: 1)),
-                        Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 10),
-                          child: Text('- OR Continue with -'),
-                        ),
-                        Expanded(child: Divider(thickness: 1)),
-                      ],
-                    ),
-                    const SizedBox(height: 20),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        _buildSocialIcon('assets/google.png'),
+                        _buildSocialIcon('assets/Logins/google.png'),
                         const SizedBox(width: 20),
-                        _buildSocialIcon('assets/apple.png'),
+                        _buildSocialIcon('assets/Logins/apple.png'),
                         const SizedBox(width: 20),
-                        _buildSocialIcon('assets/facebook.png'),
+                        _buildSocialIcon('assets/Logins/facebook.png'),
                       ],
                     ),
                     const SizedBox(height: 20),

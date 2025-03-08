@@ -1,6 +1,6 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
-import 'package:my_bucket/Homepage/bottomnavbar.dart';
+import 'package:my_bucket/Homepage/home_bottomnavbar.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});
@@ -9,14 +9,14 @@ class WelcomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.pink.shade50, // Light pink background
-      body: FadeInDown(
+      body: FadeIn(
         duration: const Duration(milliseconds: 2000),
         child: Stack(
           children: [
             // Background Image
             Positioned.fill(
               child: Image.asset(
-                'assets/welcome.jpg', // Replace with your image
+                'assets/Logins/welcome.jpg', // Replace with your image
                 fit: BoxFit.cover,
               ),
             ),

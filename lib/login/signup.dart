@@ -367,11 +367,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      _buildSocialIcon('assets/google.png'),
+                      _buildSocialIcon('assets/Logins/google.png'),
                       const SizedBox(width: 20),
-                      _buildSocialIcon('assets/apple.png'),
+                      _buildSocialIcon('assets/Logins/apple.png'),
                       const SizedBox(width: 20),
-                      _buildSocialIcon('assets/facebook.png'),
+                      _buildSocialIcon('assets/Logins/facebook.png'),
                     ],
                   ),
                   const SizedBox(height: 20),
